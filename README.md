@@ -31,18 +31,18 @@
 
 After all these steps, you run the web form application.
 
-Success output:
+Success output:<br>
 <img width="512" alt="successs" src="https://user-images.githubusercontent.com/99427984/174030937-49d65a15-f1d1-472b-b027-3b7cefc42d98.png">
 
-Error output:
+Error output:<br>
 <img width="442" alt="Error_output" src="https://user-images.githubusercontent.com/99427984/174030957-b265ee02-1978-48c6-a4ea-2d9f7243a87e.png">
 
 
-There is switch button between IPV4 and IPV6.
+There is switch button between IPV4 and IPV6.<br>
 <img width="440" alt="switch_to_ipv6_input_form" src="https://user-images.githubusercontent.com/99427984/174031049-3070881f-4b81-4cb9-a45d-f78905040c6e.png">
 
 
-If the entered IP address is not found then it shows error as follows:
+If the entered IP address is not found then it shows error as follows:<br>
 <img width="430" alt="if_ip_address_is_not_found" src="https://user-images.githubusercontent.com/99427984/174031160-ef735195-ff3d-41d4-b7c1-546be8d5c6f6.png">
 
 
