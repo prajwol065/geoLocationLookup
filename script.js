@@ -1,4 +1,4 @@
-$("form").submit(function() {
+$("form").submit(function(e) {
     var errorMessage = "";
 
     if ($("#ip_addressv4").val() == "" && $("#ip_addressv6").val() == "") {
@@ -8,6 +8,8 @@ $("form").submit(function() {
 
     var isValidv4 = true;
     var isValidv6 = true;
+
+  
     if ($("#ip_addressv4").val() !== "") {
         /*  alert('here'); */
         var contentv4 = $("#ip_addressv4").val();
@@ -25,13 +27,13 @@ $("form").submit(function() {
     }
 
     if (errorMessage == "") {
-        return true;
+              return true;
     } else {
         errorMessage = '<div class="alert alert-danger"><strong>There are following errors:</strong><br>' + errorMessage + '</div';
         $("#mesageBox").html(errorMessage);
         return false;
     }
-  /*   setTimeout(function() {
+    /* setTimeout(function() {
         window.location.reload();
     }, 0); */
 });
@@ -52,6 +54,9 @@ $('#ip_selector').click(function() {
     $('#ip_addressv6').toggleClass("hidden");
 });
 
+    
+
+
 function checkIfValidIPV6(str) {
     const regexExp = /(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))/gi;
     return regexExp.test(str);
@@ -61,3 +66,4 @@ function checkIfValidIPV4(str) {
     const regexExp = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     return regexExp.test(str);
 }
+

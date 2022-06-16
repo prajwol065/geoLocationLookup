@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once 'vendor/autoload.php';
 use GeoIp2\Database\Reader;
 
@@ -11,7 +11,7 @@ if (isset($_POST['ip_addressv4']) || isset($_POST['ip_addressv6'])) {
         $ipAddress = $_POST['ip_addressv6'];
     }
   
-    function outputMessage($param)
+    function outputMessage($param, $ipAddress)
     {
         $message = "";
         if (!empty($param['country_code'])) {
@@ -33,7 +33,7 @@ if (isset($_POST['ip_addressv4']) || isset($_POST['ip_addressv6'])) {
         if ($message === '') {
             $message = '<div class="alert alert-danger">No Data found</div>';
         } else {
-            $message = '<div class="alert alert-success">' . $message . '</div>';
+            $message = '<div class="alert alert-success">For <strong>'.$ipAddress.  ':</strong><br>' . $message . '</div>';
         }
         return $message;
     }
@@ -50,9 +50,10 @@ if (isset($_POST['ip_addressv4']) || isset($_POST['ip_addressv6'])) {
         $output['accuracy_radius'] =  $record->location->accuracyRadius;
 
 
-        $outputMessage = outputMessage($output);
+        $outputMessage = outputMessage($output, $ipAddress);
     } catch (Exception $e) {
         $outputMessage = '<div class="alert alert-danger">No Geo Data found for this ip: ' . $ipAddress . '</div>';
     }
 }
 ?>
+ -->
