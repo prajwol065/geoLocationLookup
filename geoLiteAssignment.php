@@ -1,7 +1,5 @@
 <?php
-include('header.php');
 require_once 'vendor/autoload.php';
-
 use GeoIp2\Database\Reader;
 
 $outputMessage = "";
@@ -12,8 +10,7 @@ if (isset($_POST['ip_addressv4']) || isset($_POST['ip_addressv6'])) {
     } else {
         $ipAddress = $_POST['ip_addressv6'];
     }
-
-
+  
     function outputMessage($param)
     {
         $message = "";
@@ -41,9 +38,6 @@ if (isset($_POST['ip_addressv4']) || isset($_POST['ip_addressv6'])) {
         return $message;
     }
 
-
-
-
     $reader = new Reader('GeoLite2-City.mmdb');
     /* $record = $reader->city('2c0f:ff30::'); */
     try {
@@ -61,29 +55,4 @@ if (isset($_POST['ip_addressv4']) || isset($_POST['ip_addressv6'])) {
         $outputMessage = '<div class="alert alert-danger">No Geo Data found for this ip: ' . $ipAddress . '</div>';
     }
 }
-
-?>
-<div class="container">
-    <img id="bg" src="images/geography.jpg">
-    <div id="wrapper">
-        <h1 id="geoHeading" class="display-2">GeoLite 2 Ip address Lookup</h1>
-        <div class="lead" id="mesageBox"><?php echo $outputMessage; ?></div>
-        <p id="geoIntro" class="lead">Please enter the ip address either ipv4 or ipv6 to retrieve geo information</p>
-        <form method="post">
-            <div class="row">
-                <div class="col-md-6">
-
-                    <input class="form-control active" type="text" id="ip_addressv4" name="ip_addressv4" placeholder="eg. 192.168.10.10">
-                    <input class="form-control hidden" type="text" id="ip_addressv6" name="ip_addressv6" placeholder="eg. 2c0f:feb0:2000::">
-                </div>
-                <div class="col-md-6">
-                    <button id="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </form>
-        <button id="ip_selector" class="btn btn-info">Switch To IPV6</button>
-    </div>
-</div>
-<?php
-include('footer.php');
 ?>
